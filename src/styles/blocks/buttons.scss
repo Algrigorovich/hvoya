@@ -1,0 +1,12 @@
+.button {
+  padding: 16px 0;
+  clip-path: polygon(
+    0px 0px,
+    calc(100% - 10px) 0px,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+  background: linear-gradient(90deg, #0a5c2e 0%, #228c50 100%);
+}
