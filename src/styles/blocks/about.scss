@@ -1,0 +1,32 @@
+.about {
+  margin-top: 128px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__header {
+    max-width: 463px;
+
+    span {
+      color: $color-green;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    max-width: 58%;
+    padding-top: 4px;
+  }
+
+  &__text {
+    font-weight: 500;
+    color: #000;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 130%;
+  }
+}
