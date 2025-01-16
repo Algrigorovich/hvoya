@@ -1,8 +1,11 @@
 .header {
   padding: 16px;
   position: absolute;
-  width: 100%;
+  width: calc(100% - 80px);
   overflow: hidden;
+  margin-top: 34px;
+  left: 40px;
+  right: 40px;
 
   &::before {
     content: '';
@@ -40,6 +43,8 @@
 
   &__nav {
     margin-left: auto;
+    display: flex;
+    gap: 32px;
   }
 
   &__phone {
@@ -47,8 +52,29 @@
     padding: 8px 12px;
     font-size: 24px;
     font-weight: 700;
-    line-height: 1;
+    line-height: normal;
     color: #fff;
     text-decoration: none;
+    background: $color-green;
+    transition: $base-transition;
+
+    @include hover {
+      background: $color-green-lighten;
+    }
+  }
+}
+
+.nav {
+  &__link {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: $base-transition;
+
+    @include hover {
+      color: $color-green;
+    }
   }
 }

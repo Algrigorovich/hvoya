@@ -5,7 +5,7 @@
 //      V A R I A B L E S
 // ------------------------------------
 
-$font-family: 'Fira Sans', sans-serif;
+$font-family: 'Raleway', serif;
 $font-color: #000;
 $color-green: #0a5c2e;
 $color-green-lighten: #228c50;
@@ -47,10 +47,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {
   width: 100%;
+  max-width: 1600px;
   padding: 0 40px;
   margin: 0 auto;
   transition: $base-transition;
@@ -83,3 +85,8 @@ body {
 // ------------------------------------
 //      S E C T I O N S
 // ------------------------------------
+
+@import './blocks/intro.scss';
+@import './blocks/about.scss';
+@import './blocks/instagram-gallery.scss';
+@import './blocks/parmaster.scss';
