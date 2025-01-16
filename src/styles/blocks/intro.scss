@@ -1,0 +1,73 @@
+.intro {
+  height: 768px;
+  width: 100%;
+  position: relative;
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: absolute;
+    top: 142px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 991px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    text-align: center;
+    color: #fff;
+
+    span {
+      display: block;
+      font-weight: 300;
+    }
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &__play-button {
+    margin-top: 64px;
+    cursor: pointer;
+    transition: $base-transition;
+
+    @include hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__mute-button {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: $base-transition;
+    background: url('../../img/volumeOn.svg') center/cover no-repeat;
+    font-size: 0;
+
+    @include hover {
+      opacity: 0.8;
+    }
+
+    &.muted {
+      background: url('../../img/volumeOff.svg') center/cover no-repeat;
+    }
+  }
+}
