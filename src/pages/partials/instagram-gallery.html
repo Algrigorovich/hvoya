@@ -1,0 +1,20 @@
+{% set images = [
+{ src: 'img/gallery-1.webp', src2x: 'img/gallery-1@2x.webp 2x'},
+{ src: 'img/gallery-2.webp', src2x: 'img/gallery-2@2x.webp 2x' },
+{ src:'img/gallery-3.webp', src2x: 'img/gallery-3@2x.webp 2x' },
+{ src:'img/gallery-4.webp', src2x: 'img/gallery-4@2x.webp 2x' },
+{ src:'img/gallery-5.webp', src2x: 'img/gallery-5@2x.webp 2x' } ] %}
+
+<section class="instagram-gallery js-instagram-swiper">
+  <a class="instagram-gallery__banner" href="#" target="_blank" rel="noopener noreferrer">
+    <img src="img/instagram-logo.svg" alt="Логотип Инстраграм" class="instagram-gallery__icon">
+    <h2 class="instagram-gallery__title typography">Загляните в наш Instagram</h2>
+    <span class="instagram-gallery__subtitle">@bani_hvoya</span>
+  </a>
+  <div class="swiper-wrapper">
+    {% for item in images %}
+   
+      <img loading="lazy" src="{{item.src}}" srcset="{{item.src2x}}" alt="{{item.altText}}" />
+  {% endfor %}
+  </div>
+</section>

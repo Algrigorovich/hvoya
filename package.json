@@ -29,7 +29,9 @@
     "clean": "gulp clean"
   },
   "dependencies": {
-    "axios": "^1.6.2"
+    "axios": "^1.6.2",
+    "inputmask": "^5.0.9",
+    "swiper": "11.2.1"
   },
   "browserslist": [
     "> 1%",

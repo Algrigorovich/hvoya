@@ -1,0 +1,51 @@
+.instagram-gallery {
+  margin-top: 128px;
+  position: relative;
+
+  &__banner {
+    position: absolute;
+    top: 0;
+    left: 160px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 95px 92px;
+    width: 378px;
+    height: 378px;
+    flex-shrink: 0;
+    background: #2b2e30;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    line-height: normal;
+    transition: $base-transition;
+
+    @include hover {
+      background: #2b2e30 url('../../img/instagram-hover-bg.jpg') center/cover
+        no-repeat;
+    }
+  }
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 24px;
+    margin-top: 24px;
+  }
+
+  &__subtitle {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.54);
+    font-size: 16px;
+  }
+}
+
+.swiper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
