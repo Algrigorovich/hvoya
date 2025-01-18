@@ -1,0 +1,90 @@
+.map {
+  margin-top: 128px;
+  position: relative;
+
+  &__contacts {
+    position: absolute;
+    left: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 32px;
+    max-width: 514px;
+    width: 100%;
+    clip-path: polygon(
+      23px 0,
+      calc(100% - 23px) 0,
+      100% 23px,
+      100% calc(100% - 23px),
+      calc(100% - 23px) 100%,
+      23px 100%,
+      0 calc(100% - 23px),
+      0 23px
+    );
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  &__header {
+    text-align: center;
+    color: #2b2e30;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__info {
+    color: #2b2e30;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    max-width: 378px;
+  }
+
+  &__caption {
+    display: block;
+    font-weight: 700;
+  }
+
+  &__phone,
+  &__address {
+    position: relative;
+    padding-left: 48px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__phone {
+    a {
+      @include hover {
+        color: $color-green;
+      }
+    }
+
+    &::before {
+      background: url('../../img/icons/phone.svg') center no-repeat;
+    }
+  }
+
+  &__address {
+    margin-top: 16px;
+
+    &::before {
+      background: url('../../img/icons/location.svg') center no-repeat;
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}

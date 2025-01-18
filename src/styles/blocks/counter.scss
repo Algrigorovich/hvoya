@@ -1,0 +1,83 @@
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 208px;
+  height: 64px;
+  border-radius: 8px;
+
+  &__button {
+    width: 64px;
+    height: 100%;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #c8e8d6;
+    border: none;
+    font-size: 1.5rem;
+    color: #008000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-green;
+      color: #fff;
+    }
+
+    &--decrease {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        10px 100%,
+        0 calc(100% - 10px)
+      );
+    }
+
+    &--increase {
+      clip-path: polygon(
+        0% 0%,
+        calc(100% - 10px) 0,
+        100% 10px,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80px;
+  }
+
+  &__value {
+    height: 100%;
+    color: #737373;
+    padding: 18px 22px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    background-color: #fff;
+    appearance: textfield;
+    width: 100%;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+
+  &__unit {
+    position: absolute;
+    right: 15%;
+    font-size: 24px;
+    font-weight: 400;
+    color: #737373;
+    pointer-events: none;
+  }
+}

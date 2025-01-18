@@ -1,0 +1,102 @@
+.tariff-card {
+  background: #f0f0f0;
+  max-width: 514px;
+  clip-path: polygon(23px 0, 0 23px, 0 100%, 100% 100%, 100% 0);
+  position: relative;
+
+  &__image {
+    position: relative;
+    height: 0;
+    padding-bottom: 46%;
+
+    img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__badges {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 10;
+    row-gap: 1px;
+  }
+
+  &__badge {
+    backdrop-filter: blur(5px);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    padding: 6px 12px;
+    text-align: center;
+    clip-path: polygon(
+      0% 6px,
+      6px 6px,
+      6px 0%,
+      calc(100% - 6px) 0%,
+      calc(100% - 6px) 6px,
+      100% 6px,
+      100% calc(100% - 6px),
+      calc(100% - 6px) calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      6px 100%,
+      6px calc(100% - 6px),
+      0% calc(100% - 6px)
+    );
+
+    &_red {
+      background-color: $color-red;
+    }
+    &_green {
+      background-color: $color-green;
+    }
+  }
+
+  &__content {
+    padding: 32px;
+  }
+  &__header {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  &__option-list {
+    list-style-type: disc;
+    margin-top: 16px;
+    color: #2b2e30;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 130%;
+    padding-left: 20px;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 42px;
+  }
+  &__prices {
+    color: #000;
+    font-weight: 700;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__old-price {
+    font-size: 18px;
+    text-decoration: line-through;
+    text-decoration-color: $color-red;
+  }
+  &__price {
+    font-size: 34px;
+  }
+}

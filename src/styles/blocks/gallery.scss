@@ -1,0 +1,38 @@
+.gallery {
+  &__container {
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__navigation {
+    display: flex;
+    column-gap: 12px;
+  }
+  &__button {
+    color: $color-green;
+    background: #c8e8d6;
+    width: 80px;
+    height: 64px;
+    clip-path: polygon(
+      0px 0px,
+      calc(100% - 10px) 0px,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
+    cursor: pointer;
+    transition: $base-transition;
+
+    @include hover {
+      background-color: $color-green;
+      color: #fff;
+    }
+  }
+
+  &__list {
+    margin-top: 64px;
+  }
+}

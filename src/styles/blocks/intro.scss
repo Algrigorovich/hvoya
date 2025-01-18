@@ -3,6 +3,17 @@
   width: 100%;
   position: relative;
 
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   &__video {
     position: absolute;
     top: 0;
@@ -13,15 +24,14 @@
   }
 
   &__content {
-    position: absolute;
-    top: 142px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin: 142px auto 0;
     width: 100%;
     max-width: 991px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
   }
 
   &__title {
@@ -61,6 +71,7 @@
     transition: $base-transition;
     background: url('../../img/volumeOn.svg') center/cover no-repeat;
     font-size: 0;
+    z-index: 1;
 
     @include hover {
       opacity: 0.8;
