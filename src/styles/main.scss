@@ -1,6 +1,8 @@
 @import './breakpoints.scss';
 @import './mixins.scss';
 
+@import 'swiper/swiper.scss';
+@import 'swiper/modules/autoplay/autoplay.scss';
 // ------------------------------------
 //      V A R I A B L E S
 // ------------------------------------
@@ -75,9 +77,27 @@ ul {
   transition: $base-transition;
 
   @include respond-to('medium') {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
+}
+
+.mobile-element {
+  display: flex;
+
+  @include respond-from(medium) {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
 }
 
 // ------------------------------------
@@ -91,10 +111,16 @@ ul {
 @import './blocks/footer.scss';
 @import './blocks/card.scss';
 @import './blocks/counter.scss';
+@import './blocks/modals.scss';
+@import './blocks/order-banner.scss';
 
 .logo {
   display: block;
   max-width: 178px;
+
+  @include respond-to(small) {
+    max-width: 125px;
+  }
 
   &__img {
     width: 100%;

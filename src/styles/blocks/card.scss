@@ -1,8 +1,13 @@
 .tariff-card {
   background: #f0f0f0;
-  max-width: 514px;
   clip-path: polygon(23px 0, 0 23px, 0 100%, 100% 100%, 100% 0);
   position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(small) {
+    clip-path: polygon(12px 0, 0 12px, 0 100%, 100% 100%, 100% 0);
+  }
 
   &__image {
     position: relative;
@@ -27,6 +32,15 @@
     align-items: flex-end;
     z-index: 10;
     row-gap: 1px;
+
+    @include respond-to(large) {
+      right: 24px;
+      top: 24px;
+    }
+    @include respond-to(small) {
+      right: 12px;
+      top: 12px;
+    }
   }
 
   &__badge {
@@ -52,6 +66,10 @@
       0% calc(100% - 6px)
     );
 
+    @include respond-to(small) {
+      font-size: 12px;
+    }
+
     &_red {
       background-color: $color-red;
     }
@@ -62,28 +80,56 @@
 
   &__content {
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @include respond-to(large) {
+      padding: 24px;
+    }
+    @include respond-to(small) {
+      padding: 16px;
+    }
   }
+
   &__header {
     color: #000;
     font-size: 32px;
     font-weight: 700;
     line-height: 1.1;
+
+    @include respond-to(large) {
+      font-size: 24px;
+    }
   }
+
   &__option-list {
     list-style-type: disc;
-    margin-top: 16px;
     color: #2b2e30;
     font-size: 18px;
     font-weight: 500;
     line-height: 130%;
     padding-left: 20px;
+    margin-block: 16px 48px;
+
+    @include respond-to(small) {
+      font-size: 16px;
+      gap: 4px;
+      display: flex;
+      flex-direction: column;
+    }
   }
+
   &__footer {
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: space-between;
     align-items: center;
-    margin-top: 42px;
+    margin-top: auto;
+    column-gap: 16px;
   }
+
   &__prices {
     color: #000;
     font-weight: 700;
@@ -91,12 +137,28 @@
     display: flex;
     flex-direction: column;
   }
+
   &__old-price {
     font-size: 18px;
     text-decoration: line-through;
     text-decoration-color: $color-red;
+
+    @include respond-to(small) {
+      font-size: 16px;
+    }
   }
+
   &__price {
     font-size: 34px;
+
+    @include respond-to(small) {
+      font-size: 24px;
+    }
+  }
+
+  &__button {
+    @include respond-to(laptop-hdpi) {
+      font-size: 20px;
+    }
   }
 }

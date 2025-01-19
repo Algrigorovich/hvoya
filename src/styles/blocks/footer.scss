@@ -3,12 +3,24 @@
     display: flex;
     justify-content: space-between;
     padding-block: 64px;
+
+    @include respond-to(small) {
+      flex-direction: column;
+      align-items: center;
+      padding-block: 24px;
+      row-gap: 24px;
+    }
   }
 
   &__logo {
+    @include respond-to(small) {
+      text-align: center;
+    }
     .logo {
       max-width: 211px;
       width: 100%;
+      display: block;
+      margin: 0 auto;
     }
   }
 
@@ -18,6 +30,10 @@
     font-weight: 500;
     line-height: 130%;
     margin-top: 16px;
+
+    @include respond-to(small) {
+      font-size: 16px;
+    }
   }
 
   &__info {
@@ -41,11 +57,23 @@
     background-color: #ececec;
     transition: $base-transition;
 
+    @include respond-to(small) {
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+    }
+
     a {
       width: 100%;
       height: 100%;
       display: grid;
       place-content: center;
+
+      img {
+        @include respond-to(small) {
+          transform: scale(0.7);
+        }
+      }
     }
 
     &:first-of-type {

@@ -1,9 +1,37 @@
 .tariffs {
+  --clip-size: 32px;
+
+  background-color: #fff;
   padding-block: 128px;
+  margin-top: -37px;
+  clip-path: polygon(
+    var(--clip-size) 0,
+    calc(100% - var(--clip-size)) 0,
+    100% var(--clip-size),
+    100% calc(100% - var(--clip-size)),
+    calc(100% - var(--clip-size)) 100%,
+    var(--clip-size) 100%,
+    0 calc(100% - var(--clip-size)),
+    0 var(--clip-size)
+  );
+
+  @include respond-to(laptop-mdpi) {
+    padding-block: 64px;
+  }
+  @include respond-to(medium) {
+    --clip-size: 12px;
+
+    padding-block: 48px;
+    margin-top: -12px;
+  }
 
   &__header {
     &:not(:first-of-type) {
       margin-top: 64px;
+
+      @include respond-to(small) {
+        margin-top: 48px;
+      }
     }
   }
 
@@ -13,6 +41,20 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+
+    @include respond-to(large) {
+      gap: 16px;
+    }
+    @include respond-to(small) {
+      margin-top: 24px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include respond-to(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
   }
 }
 
@@ -32,6 +74,13 @@
     0 23px
   );
 
+  @include respond-to(small) {
+    padding: 0;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -39,14 +88,31 @@
     height: 100%;
     inset: 0;
     background-color: rgba($color: #000000, $alpha: 0.5);
+
+    @include respond-to(small) {
+      content: none;
+    }
+  }
+
+  &__image-wrapper {
+    position: absolute;
+    inset: 0;
+
+    @include respond-to(small) {
+      position: relative;
+      height: 0;
+      padding-bottom: 67%;
+    }
   }
 
   &__image {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: left center;
   }
+
   &__content {
     position: relative;
     display: flex;
@@ -56,12 +122,25 @@
     max-width: 882px;
     margin-left: auto;
     color: #fff;
+
+    @include respond-to(small) {
+      background-color: #1b1b1b;
+      padding: 24px 16px;
+    }
   }
+
   &__header {
   }
+
   &__text {
   }
+
   &__button {
     align-self: flex-start;
+
+    @include respond-to(small) {
+      width: 100%;
+      max-width: 360px;
+    }
   }
 }

@@ -1,9 +1,21 @@
 .about {
   margin-top: 128px;
 
+  @include respond-to(laptop-mdpi) {
+    margin-top: 64px;
+  }
+  @include respond-to(small) {
+    margin-top: 48px;
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
+    column-gap: 30px;
+
+    @include respond-to(small) {
+      flex-direction: column;
+    }
   }
 
   &__header {
@@ -20,6 +32,11 @@
     row-gap: 24px;
     max-width: 58%;
     padding-top: 4px;
+
+    @include respond-to(small) {
+      max-width: 600px;
+      padding-top: 16px;
+    }
   }
 
   &__text {
@@ -28,5 +45,12 @@
     font-size: 24px;
     font-weight: 500;
     line-height: 130%;
+
+    @include respond-to(laptop-mdpi) {
+      font-size: 20px;
+    }
+    @include respond-to(small) {
+      font-size: 16px;
+    }
   }
 }

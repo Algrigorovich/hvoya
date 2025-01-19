@@ -1,10 +1,12 @@
-import Swiper from 'swiper'
+import Swiper, { Autoplay } from 'swiper'
 
 document.addEventListener('DOMContentLoaded', () => {
-  new Swiper(selector, {
-    direction: 'horizontal',
+  new Swiper('.js-instagram-swiper', {
+    modules: [Autoplay],
     loop: true,
     slidesPerView: 'auto',
-    spaceBetween: 20,
+    slidesPerGroupAuto: true,
+    spaceBetween: 30,
+    autoplay: true,
   })
 })

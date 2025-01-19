@@ -34,4 +34,11 @@ button {
   @include hover {
     transform: scale(1.02);
   }
+  @include respond-to(laptop-mdpi) {
+    font-size: 20px;
+  }
+  @include respond-to(small) {
+    font-size: 18px;
+    padding-bottom: 12px;
+  }
 }

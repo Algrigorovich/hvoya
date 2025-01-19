@@ -3,15 +3,15 @@
   padding: 0;
 
   &--h1 {
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 900;
     line-height: 44px;
     line-height: 1;
 
     @include respond-from(medium) {
       font-size: 59px;
     }
-    @include respond-from(large) {
+    @include respond-from(laptop-mdpi) {
       font-size: 80px;
     }
   }
@@ -24,7 +24,7 @@
     @include respond-from(medium) {
       font-size: 40px;
     }
-    @include respond-from(large) {
+    @include respond-from(laptop-mdpi) {
       font-size: 65px;
     }
   }
