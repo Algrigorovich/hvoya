@@ -1,12 +1,53 @@
-{% set tariffImages = ['1', '2', '1'] %}
-{% set tariffCustomImages = ['1', '2', '3'] %}
+{% set tariffImages = ['1', '2', '1'] %} 
+{% set tariffCustomImages = ['1', '2', '3'] %} 
 
+{% set tariffs = [ 
+  { 
+    image: '1',
+    name: 'Стандарт', 
+    options: ['Баня с размещением до 6 человек (3 часа)'], 
+    price: '3 500 ₽', 
+    oldprice: '6 000 ₽' }, 
+  { 
+    image: '2',
+    name: 'Хвойный день', 
+    options: ['Чан с горячей водой под открытым небом (1 час)'], 
+    price: '3 500 ₽', 
+    oldprice: '4 500 ₽' }, 
+  { 
+    image: '1',
+    name: 'Большой отдых', 
+    options: ['Баня с размещением до 6 человек (3 часа)', 'Чан с горячей водой под открытым небом (1 час)', 'Мангал и еда'], 
+    price: '3 500 ₽', 
+    oldprice: '4 500 ₽' 
+  }] %}
+
+  {% set tariffsCustom = [ 
+    { 
+      image: '1',
+      name: 'Баня', 
+      option: 'Баня с размещением до 6 человек.', 
+      price: '3 500 ₽', 
+      oldprice: '6 000 ₽' }, 
+    { 
+      image: '2',
+      name: 'Чан под открытым небом', 
+      option: 'Чан с горячей водой под открытым небом с размещением до 6 человек.', 
+      price: '3 500 ₽', 
+      oldprice: '4 500 ₽' }, 
+    { 
+      image: '3',
+      name: 'Аренда квадроцикла', 
+      option: 'Квадроцикл мощностью 500 кубов. Аренда от 1 часа с инструктором.', 
+      price: '3 500 ₽', 
+      oldprice: '4 500 ₽' 
+    }] %}
 
 <section class="tariffs" id="tariffs">
   <div class="container">
     <h2 class="tariffs__header typography typography_h2">Выберите тариф</h2>
     <ul class="tariffs__list">
-      {% for item in tariffImages -%}
+      {% for item in tariffs %}
       <li class="tariffs__card tariff-card">
         <div class="tariff-card__badges">
           <span class="tariff-card__badge tariff-card__badge_red"
@@ -17,36 +58,35 @@
           >
         </div>
         <div class="tariff-card__image">
-          <img src="img/tariffs/tariff-{{item}}.webp" alt="Девушка в бане" />
+          <img src="img/tariffs/tariff-{{item.image}}.webp" alt="Девушка в бане" />
         </div>
         <div class="tariff-card__content">
-          <h3 class="tariff-card__header typography">Стандарт</h3>
+          <h3 class="tariff-card__header typography">{{item.name}}</h3>
           <ul class="tariff-card__option-list">
-            <li class="tariff-card__option">
-              Баня с размещением до 6 человек (3 часа)
-            </li>
-            <li class="tariff-card__option">
-              Чан с горячей водой под открытым небом (1 час)
-            </li>
-            <li class="tariff-card__option">Мангал и еда</li>
+            {% for option in item.options %}
+            <li class="tariff-card__option">{{option}}</li>
+            {% endfor %}
           </ul>
           <div class="tariff-card__footer">
             <div class="tariff-card__prices">
-              <span class="tariff-card__old-price">6 000 ₽</span>
-              <span class="tariff-card__price">3 500 ₽</span>
+              <span class="tariff-card__old-price">{{item.oldprice}}</span>
+              <span class="tariff-card__price">{{item.price}}</span>
             </div>
-            <button type="button" class="tariff-card__button button js-open-feedback-modal">
+            <button
+              type="button"
+              class="tariff-card__button button js-open-feedback-modal"
+            >
               Забронировать
             </button>
           </div>
         </div>
       </li>
-      {%- endfor %}
+      {% endfor %}
     </ul>
 
     <h2 class="tariffs__header typography typography_h2">Собери свой тариф</h2>
     <ul class="tariffs__list">
-      {% for i in tariffCustomImages -%}
+      {% for item in tariffsCustom -%}
       <li class="tariffs__card tariff-card">
         <div class="tariff-card__badges">
           <span class="tariff-card__badge tariff-card__badge_red"
@@ -57,29 +97,25 @@
           >
         </div>
         <div class="tariff-card__image">
-          <img src="img/tariffs/custom-{{i}}.webp" alt="Девушка в бане" />
+          <img src="img/tariffs/custom-{{item.image}}.webp" alt="{{item.name}} Хвоя 33" />
         </div>
         <div class="tariff-card__content">
-          <h3 class="tariff-card__header typography">Стандарт</h3>
-          <ul class="tariff-card__option-list">
-            <li class="tariff-card__option">
-              Баня с размещением до 6 человек (3 часа)
-            </li>
-            <li class="tariff-card__option">
-              Чан с горячей водой под открытым небом (1 час)
-            </li>
-            <li class="tariff-card__option">Мангал и еда</li>
-          </ul>
+          <h3 class="tariff-card__header typography">{{item.name}}</h3>
+         
+            <div class="tariff-card__desciption">
+              {{item.option}}
+            </div>
+         
           <div class="tariff-card__footer">
             <div class="tariff-card__prices">
-              <span class="tariff-card__old-price">6 000 ₽</span>
-              <span class="tariff-card__price">5 700 ₽</span>
+              <span class="tariff-card__old-price">{{item.oldprice}}</span>
+              <span class="tariff-card__price">{{item.price}}</span>
             </div>
-            <div class="button visually-hidden">Добавить</div>
-            <form class="counter">
+            <div class="button js-add-button">Добавить</div>
+            <form class="counter visually-hidden">
               <button
                 type="button"
-                class="counter__button counter__button--decrease"
+                class="counter__button counter__button_decrease js-decrease"
               >
                 −
               </button>
@@ -91,11 +127,11 @@
                   min="0"
                   max="24"
                 />
-                <!-- <span class="counter__unit">ч.</span> -->
+                <span class="counter__unit">ч.</span>
               </div>
               <button
                 type="button"
-                class="counter__button counter__button--increase"
+                class="counter__button counter__button_increase js-increase"
               >
                 +
               </button>
@@ -138,7 +174,7 @@
           Аренда квадроциклов у нас — это ваш шанс насладиться незабываемыми
           пейзажами и острыми ощущениями среди вековых деревьев.
         </p>
-        <button type="button" class="tariffs-banner__button button">
+        <button type="button" class="tariffs-banner__button button js-open-feedback-modal">
           Арендовать за 4 500 ₽ / час
         </button>
       </div>

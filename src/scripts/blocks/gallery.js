@@ -1,28 +1,70 @@
-import Swiper, { Navigation } from 'swiper'
+$(document).ready(() => {
+  const $owl = $('.js-gallery-slider .owl-carousel')
+  const $nextButton = $('.slider-button-next')
+  const $prevButton = $('.slider-button-prev')
 
-document.addEventListener('DOMContentLoaded', () => {
-  const swiper = document.querySelector('.js-gallery-swiper')
+  $owl.owlCarousel({
+    loop: false,
+    autoWidth: true,
+    margin: 30,
+    autoplay: false,
+    dots: false,
+    responsive: {
+      0: {
+        items: 1,
+        margin: 12,
+        slideBy: 1,
+      },
+      768: {
+        autoWidth: true,
+      },
+    },
+  })
 
-  if (swiper) {
-    new Swiper(swiper, {
-      modules: [Navigation],
-      slidesPerView: 2,
-      loop: true,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1.2,
-          spaceBetween: 12,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-      },
-    })
+  const updatePrevButtonState = () => {
+    const $firstActiveItem = $owl.find('.owl-item.active').first()
+    const isFirstItem = $firstActiveItem.index() === 0
+
+    $prevButton
+      .prop('disabled', isFirstItem)
+      .toggleClass('disabled', isFirstItem)
   }
+
+  const goToNextSlide = () => {
+    const $lastActiveItem = $owl.find('.owl-item.active').last()
+    const totalItems = $owl.find('.owl-item').length
+    const lastItemIndex = $lastActiveItem.index()
+
+    if (lastItemIndex === totalItems - 1) {
+      $owl.trigger('to.owl.carousel', [0, 300])
+    } else {
+      $owl.trigger('next.owl.carousel')
+    }
+
+    updatePrevButtonState()
+  }
+
+  const goToPrevSlide = () => {
+    $owl.trigger('prev.owl.carousel')
+    updatePrevButtonState()
+  }
+
+  $owl.on(
+    'initialized.owl.carousel changed.owl.carousel',
+    updatePrevButtonState
+  )
+
+  $nextButton.on('click', goToNextSlide)
+
+  $prevButton.on('click', goToPrevSlide)
+
+  $owl.on('dragged.owl.carousel', (event) => {
+    const direction = event.relatedTarget._drag.direction
+
+    if (direction === 'left') {
+      goToNextSlide()
+    } else if (direction === 'right') {
+      goToPrevSlide()
+    }
+  })
 })

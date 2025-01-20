@@ -24,5 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   muteButton.addEventListener('click', () => {
     video.muted = !video.muted
     muteButton.classList.toggle('muted', video.muted)
+    console.log(video.muted)
   })
 })

@@ -1,13 +1,24 @@
+const isMobile = window.innerWidth <= 768
+
 async function initMap() {
   await ymaps3.ready
 
   const { YMap, YMapDefaultSchemeLayer } = ymaps3
 
+  const mobileLocation = {
+    center: [40.470413, 56.033255],
+    zoom: 15,
+  }
+
+  const desktopLocation = {
+    center: [40.470413, 56.033255],
+    zoom: 16,
+  }
+
+  const location = isMobile ? mobileLocation : desktopLocation
+
   const map = new YMap(document.getElementById('map'), {
-    location: {
-      center: [40.470413, 56.033255],
-      zoom: 16,
-    },
+    location,
   })
 
   map.addChild(

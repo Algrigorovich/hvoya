@@ -120,6 +120,14 @@
     }
   }
 
+  &__desciption {
+    color: #2b2e30;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 130%;
+    margin-block: 16px 48px;
+  }
+
   &__footer {
     display: flex;
     flex-wrap: wrap;

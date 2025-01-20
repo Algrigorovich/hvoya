@@ -41,4 +41,15 @@ button {
     font-size: 18px;
     padding-bottom: 12px;
   }
+
+  &_light {
+    background: #c8e8d6;
+    color: $color-green;
+    transition: $base-transition;
+
+    @include hover {
+      background: $color-green;
+      color: #fff;
+    }
+  }
 }

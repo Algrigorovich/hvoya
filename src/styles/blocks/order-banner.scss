@@ -15,4 +15,12 @@
       font-weight: 300;
     }
   }
+
+  @include respond-to(small) {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    font-size: 18px;
+    flex-direction: row;
+  }
 }
