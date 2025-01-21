@@ -1,14 +1,8 @@
 .instagram-gallery {
-  --clip-size-middle: 16px;
-  --clip-size-corner: 23px;
-
   margin-top: 128px;
   position: relative;
 
   @include respond-to(small) {
-    --clip-size-middle: 6px;
-    --clip-size-corner: 12px;
-
     margin-top: 32px;
   }
 
@@ -49,7 +43,7 @@
     position: absolute;
     background: #2b2e30;
     top: 0px;
-    left: -1;
+    left: -1px;
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     z-index: -1;

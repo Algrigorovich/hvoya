@@ -19,6 +19,7 @@ async function initMap() {
 
   const map = new YMap(document.getElementById('map'), {
     location,
+    behaviors: ['drag', 'pinchZoom', 'dblClick'],
   })
 
   map.addChild(

@@ -1,12 +1,24 @@
 .tariff-card {
   background: #f0f0f0;
-  clip-path: polygon(23px 0, 0 23px, 0 100%, 100% 100%, 100% 0);
+  clip-path: polygon(
+    var(--clip-size-corner) 0,
+    0 var(--clip-size-corner),
+    0 100%,
+    100% 100%,
+    100% 0
+  );
   position: relative;
   display: flex;
   flex-direction: column;
 
   @include respond-to(small) {
-    clip-path: polygon(12px 0, 0 12px, 0 100%, 100% 100%, 100% 0);
+    clip-path: polygon(
+      var(--clip-size-corner) 0,
+      0 var(--clip-size-corner),
+      0 100%,
+      100% 100%,
+      100% 0
+    );
   }
 
   &__image {

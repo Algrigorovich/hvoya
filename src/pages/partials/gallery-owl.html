@@ -20,6 +20,10 @@
       {% for i in range(1, 7) -%}
       <div class="gallery__item">
         <img src="img/gallery/gallery-{{i}}.webp" alt="Галерея {{i}}" srcset="img/gallery/gallery-{{i}}@2x.webp 2x">
+        <div class="gallery__caption visually-hidden"><p class="typography">
+          Если понадобится описание к фото -
+          так выглядят текстовые стили и оверлей
+        </p></div>
       </div>
       {%- endfor %}
     </div>

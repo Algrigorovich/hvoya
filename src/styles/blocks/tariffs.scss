@@ -64,14 +64,14 @@
   padding: 128px 39px;
   margin-top: 128px;
   clip-path: polygon(
-    23px 0,
-    calc(100% - 23px) 0,
-    100% 23px,
-    100% calc(100% - 23px),
-    calc(100% - 23px) 100%,
-    23px 100%,
-    0 calc(100% - 23px),
-    0 23px
+    var(--clip-size-corner) 0,
+    calc(100% - var(--clip-size-corner)) 0,
+    100% var(--clip-size-corner),
+    100% calc(100% - var(--clip-size-corner)),
+    calc(100% - var(--clip-size-corner)) 100%,
+    var(--clip-size-corner) 100%,
+    0 calc(100% - var(--clip-size-corner)),
+    0 var(--clip-size-corner)
   );
 
   @include respond-to(small) {

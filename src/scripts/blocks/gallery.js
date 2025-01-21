@@ -5,18 +5,17 @@ $(document).ready(() => {
 
   $owl.owlCarousel({
     loop: false,
-    autoWidth: true,
     margin: 30,
     autoplay: false,
     dots: false,
     responsive: {
       0: {
-        items: 1,
+        items: 1.2,
         margin: 12,
         slideBy: 1,
       },
-      768: {
-        autoWidth: true,
+      575: {
+        items: 2.2,
       },
     },
   })
