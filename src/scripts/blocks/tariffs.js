@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const orderBanner = document.querySelector('.order-banner')
+
   document.addEventListener('click', (event) => {
     const addButton = event.target.closest('.js-add-button')
 
@@ -30,9 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       input.value = value
 
+      if (value > 0) {
+        orderBanner.classList.remove('visually-hidden')
+      }
+
       if (value === 0) {
         counterForm.classList.add('visually-hidden')
         addButton.classList.remove('visually-hidden')
+        orderBanner.classList.add('visually-hidden')
+        input.value = 1
       }
     }
   })

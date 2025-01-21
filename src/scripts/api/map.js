@@ -6,7 +6,7 @@ async function initMap() {
   const { YMap, YMapDefaultSchemeLayer } = ymaps3
 
   const mobileLocation = {
-    center: [40.470413, 56.033255],
+    center: [40.471413, 56.033255],
     zoom: 15,
   }
 
