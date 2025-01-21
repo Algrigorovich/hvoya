@@ -45,9 +45,12 @@
     @include respond-to(large) {
       gap: 16px;
     }
+    @include respond-to(ipad) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     @include respond-to(small) {
       margin-top: 24px;
-      grid-template-columns: repeat(2, 1fr);
     }
     @include respond-to(phone) {
       grid-template-columns: 1fr;

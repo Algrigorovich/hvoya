@@ -79,10 +79,28 @@
     transition: $base-transition;
     width: 144px;
     height: 144px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      background: url('../../img/icons/play.svg') center/cover no-repeat;
+
+      @include respond-to(medium) {
+        width: 28px;
+        height: 28px;
+      }
+    }
 
     img {
       width: 100%;
       height: 100%;
+      animation: rotate 25s linear infinite forwards;
     }
 
     @include hover {
@@ -118,5 +136,15 @@
     &.muted {
       background: url('../../img/volumeOff.svg') center/cover no-repeat;
     }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

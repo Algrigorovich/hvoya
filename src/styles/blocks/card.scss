@@ -136,6 +136,7 @@
     align-items: center;
     margin-top: auto;
     column-gap: 16px;
+    min-height: 64px;
   }
 
   &__prices {
@@ -159,6 +160,9 @@
   &__price {
     font-size: 34px;
 
+    @include respond-to(large) {
+      font-size: 28px;
+    }
     @include respond-to(small) {
       font-size: 24px;
     }

@@ -1,8 +1,14 @@
 .instagram-gallery {
+  --clip-size-middle: 16px;
+  --clip-size-corner: 23px;
+
   margin-top: 128px;
   position: relative;
 
   @include respond-to(small) {
+    --clip-size-middle: 6px;
+    --clip-size-corner: 12px;
+
     margin-top: 32px;
   }
 
@@ -18,7 +24,7 @@
     width: 378px;
     height: 378px;
     flex-shrink: 0;
-    background: #2b2e30;
+    background-color: #fff;
     text-decoration: none;
     text-align: center;
     font-weight: 600;
@@ -26,8 +32,10 @@
     transition: $base-transition;
 
     @include hover {
-      background: #2b2e30 url('../../img/instagram-hover-bg.jpg') center/cover
-        no-repeat;
+      .instagram-gallery__banner-bg {
+        background: #2b2e30 url('../../img/instagram-hover-bg.jpg') center/cover
+          no-repeat;
+      }
     }
     @include respond-to(small) {
       width: 162px;
@@ -35,6 +43,34 @@
       padding: 42px 32px;
       left: 186px;
     }
+  }
+
+  &__banner-bg {
+    position: absolute;
+    background: #2b2e30;
+    top: 0px;
+    left: -1;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    clip-path: polygon(
+      0 0,
+      calc(50% - var(--clip-size-middle)) 0,
+      50% var(--clip-size-middle),
+      calc(50% + var(--clip-size-middle)) 0,
+      100% 0,
+      100% calc(50% - var(--clip-size-middle)),
+      calc(100% - var(--clip-size-middle)) 50%,
+      100% calc(50% + var(--clip-size-middle)),
+      100% 100%,
+      calc(50% + var(--clip-size-middle)) 100%,
+      50% calc(100% - var(--clip-size-middle)),
+      calc(50% - var(--clip-size-middle)) 100%,
+      0 100%,
+      0 calc(50% + var(--clip-size-middle)),
+      var(--clip-size-middle) 50%,
+      0 calc(50% - var(--clip-size-middle))
+    );
   }
 
   &__icon {
@@ -71,9 +107,6 @@
 
   .owl-stage {
     .owl-item {
-      --clip-size-middle: 16px;
-      --clip-size-corner: 23px;
-
       &:nth-of-type(6n + 1) {
         clip-path: polygon(
           0 0,
@@ -160,11 +193,6 @@
           var(--clip-size-middle) 50%,
           0 calc(50% - var(--clip-size-middle))
         );
-      }
-
-      @include respond-to(small) {
-        --clip-size-middle: 6px;
-        --clip-size-corner: 12px;
       }
     }
   }

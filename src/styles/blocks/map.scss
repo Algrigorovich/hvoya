@@ -46,6 +46,9 @@
     @include respond-to(laptop-mdpi) {
       max-width: 360px;
     }
+    @include respond-to(medium) {
+      left: 60px;
+    }
     @include respond-to(small) {
       position: static;
       transform: unset;

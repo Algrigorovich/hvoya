@@ -1,19 +1,29 @@
 .header {
   padding: 16px;
-  position: absolute;
+  position: fixed;
+  top: 0;
   width: calc(100% - 80px);
   overflow: hidden;
   margin-top: 34px;
   left: 40px;
   right: 40px;
+  z-index: 10;
+  transition: $base-transition;
+
+  &_scrolling {
+    transform: translateY(-34px);
+  }
 
   @include respond-to(small) {
-    position: relative;
     padding: 12px;
     width: 100%;
     margin-top: 0;
     left: unset;
     right: unset;
+
+    &_scrolling {
+      transform: unset;
+    }
   }
 
   &::before {
@@ -74,7 +84,7 @@
     @include hover {
       background: $color-green-lighten;
     }
-    @include respond-to(small) {
+    @include respond-to(medium) {
       display: none;
     }
     @include respond-to(small) {
@@ -115,14 +125,11 @@
     @include hover {
       color: $color-green;
     }
-    @include respond-to(small) {
+    @include respond-to(large) {
+      font-size: 20px;
+    }
+    @include respond-to(medium) {
       display: none;
-    }
-
-    &_tariffs {
-    }
-
-    &_contacts {
     }
   }
 }

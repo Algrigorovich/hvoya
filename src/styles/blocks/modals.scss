@@ -20,6 +20,7 @@
   &::backdrop {
     background-color: rgba($color: #000000, $alpha: 0.3);
   }
+  @include hide-scrollbar;
 
   &__form-content {
     display: flex;
@@ -94,6 +95,26 @@
   &__submit {
     width: 100%;
   }
+}
+
+.modal-video {
+  width: 70vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  --plyr-video-control-background-hover: #0a5c2e;
+
+  video {
+    width: 100%;
+    object-fit: cover;
+  }
+  @include respond-to(medium) {
+    width: 100vw;
+    max-width: unset;
+    padding: 4px;
+    left: 0;
+    right: 0;
+  }
+
+  @include hide-scrollbar;
 }
 
 @keyframes fadeIn {
