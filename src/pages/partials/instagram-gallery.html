@@ -12,19 +12,18 @@
 { src: 'img/instagram/gallery-1.webp', src2x: 'img/instagram/gallery-1@2x.webp 2x'}
  ] %}
 
-<section class="instagram-gallery swiper js-instagram-swiper">
+<section class="instagram-gallery swiper js-instagram-slider ">
   <a class="instagram-gallery__banner" href="#" target="_blank" rel="noopener noreferrer">
+    <div class="instagram-gallery__banner-bg"></div>
     <img src="img/instagram-logo.svg" alt="Логотип Инстраграм" class="instagram-gallery__icon">
     <h2 class="instagram-gallery__title typography">Загляните в наш Instagram</h2>
     <span class="instagram-gallery__subtitle">@bani_hvoya</span>
   </a>
-  <ul class="swiper-wrapper instagram-gallery__list">
+  <div class="instagram-gallery__list owl-carousel">
     {% for item in images %}
-    <li class="swiper-slide">
       <div class="instagram-gallery__item">
         <img loading="lazy" src="{{item.src}}" srcset="{{item.src2x}}" alt="{{item.altText}}" />
       </div>
-    </li>
-  {% endfor %}
-  </ul>
+    {% endfor %}
+  </div>
 </section>
