@@ -32,7 +32,7 @@ button {
   transition: $base-transition;
 
   @include hover {
-    transform: scale(1.02);
+    filter: grayscale(0.4);
   }
   @include respond-to(laptop-mdpi) {
     font-size: 20px;

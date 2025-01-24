@@ -39,7 +39,7 @@
     color: #000;
     transition: color 0.3s;
 
-    &:hover {
+    @include hover {
       color: $color-green;
     }
   }
@@ -98,9 +98,21 @@
 }
 
 .modal-video {
+  --plyr-video-control-background-hover: #0a5c2e;
+
   width: 70vw;
   background-color: rgba(0, 0, 0, 0.8);
-  --plyr-video-control-background-hover: #0a5c2e;
+  padding: 0;
+
+  &::backdrop {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+  }
+
+  &:has(.plyr--playing) {
+    &::backdrop {
+      background-color: rgba($color: #000000, $alpha: 1);
+    }
+  }
 
   video {
     width: 100%;
@@ -115,6 +127,17 @@
   }
 
   @include hide-scrollbar;
+
+  .modal__close {
+    color: #fff;
+    z-index: 1;
+
+    @include hover {
+      color: $color-green-lighten;
+    }
+  }
+
+  
 }
 
 @keyframes fadeIn {

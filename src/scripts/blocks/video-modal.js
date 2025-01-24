@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target === videoModal ||
       event.target.classList.contains('js-modal-close')
     ) {
+      player.pause()
       videoModal.close()
       lockScrollToggle()
     }

@@ -82,6 +82,8 @@ ul {
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .container {

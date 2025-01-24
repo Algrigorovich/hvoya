@@ -3,6 +3,7 @@
   position: fixed;
   top: 0;
   width: calc(100% - 80px);
+  max-width: 1840px;
   overflow: hidden;
   margin-top: 34px;
   left: 40px;
@@ -12,6 +13,11 @@
 
   &_scrolling {
     transform: translateY(-34px);
+  }
+
+  @include respond-from(FHD) {
+    left: calc((100vw - 1840px - 17px) / 2 );
+   
   }
 
   @include respond-to(small) {
