@@ -34,10 +34,11 @@
     right: 16px;
     background: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 16px;
+    font-weight: 300;
     cursor: pointer;
     color: #000;
-    transition: color 0.3s;
+    transition: $base-transition;
 
     @include hover {
       color: $color-green;
@@ -86,6 +87,7 @@
       text-decoration-thickness: auto;
       text-underline-offset: auto;
       text-underline-position: from-font;
+
       @include hover {
         text-decoration: none;
       }
@@ -114,6 +116,12 @@
     }
   }
 
+  &:has(.plyr--hide-controls) {
+    .modal__close {
+      opacity: 0;
+    }
+  }
+
   video {
     width: 100%;
     object-fit: cover;
@@ -131,6 +139,7 @@
   .modal__close {
     color: #fff;
     z-index: 1;
+    opacity: 1;
 
     @include hover {
       color: $color-green-lighten;
