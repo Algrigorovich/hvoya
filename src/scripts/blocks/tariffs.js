@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const counterForm = card.querySelector('.counter')
 
       addButton.classList.add('visually-hidden')
+      orderBanner.classList.remove('visually-hidden')
       counterForm.classList.remove('visually-hidden')
     }
   })

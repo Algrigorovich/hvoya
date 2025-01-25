@@ -1,10 +1,20 @@
 import { lockScrollToggle } from '../utils/functions'
 
+const handlePhoneInput = (event) => {
+  event.target.value = event.target.value.replace(/[^+\d]|(?<=\+.*)\+/g, '')
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const orderModal = document.getElementById('modal-order')
   const form = orderModal.querySelector('form')
   const content = orderModal.querySelector('.modal__form-content')
   const successMessage = orderModal.querySelector('.form-sucess')
+  const phoneInput = orderModal.querySelector('input[name="phone"]')
+  const orderModalBtn = document.querySelector('.js-open-order-modal')
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', handlePhoneInput)
+  }
 
   form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -12,13 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     successMessage.classList.remove('visually-hidden')
   })
 
-  document.body.addEventListener('click', (event) => {
-    if (event.target.classList.contains('js-open-order-modal')) {
+  orderModalBtn.addEventListener('click', () => {
+   
       orderModal.showModal()
       content.classList.remove('visually-hidden')
       successMessage.classList.add('visually-hidden')
       lockScrollToggle()
-    }
+    
   })
 
   orderModal.addEventListener('click', (event) => {
