@@ -5,7 +5,6 @@
   border: none;
   background-color: #ffffff;
   padding: 20px;
-  animation: fadeIn 0.4s ease-out;
   clip-path: polygon(
     var(--clip-size-corner) 0,
     calc(100% - var(--clip-size-corner)) 0,
@@ -48,6 +47,7 @@
   &__title {
     text-align: left;
     font-size: 42px;
+    margin-top: 12px;
     margin-bottom: 10px;
     color: #2b2e30;
 
@@ -103,6 +103,7 @@
   --plyr-video-control-background-hover: #0a5c2e;
 
   width: 70vw;
+  min-height: 200px;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 0;
 
@@ -136,6 +137,10 @@
 
   @include hide-scrollbar;
 
+  .plyr__menu__container [role='menu'] {
+    max-height: 100px;
+    overflow: scroll;
+  }
   .modal__close {
     color: #fff;
     z-index: 1;
@@ -144,17 +149,6 @@
     @include hover {
       color: $color-green-lighten;
     }
-  }
-
-  
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

@@ -117,22 +117,36 @@ ul {
   clip-path: inset(50%);
 }
 
-dialog,
-::backdrop {
-  transition: display 0.5s allow-discrete, overlay 0.5s allow-discrete,
-    opacity 0.5s;
-  opacity: 0;
-}
+@supports (transition: opacity 0.5s) and (transition: display 0.5s allow-discrete) {
+  dialog,
+  ::backdrop {
+    transition: display 0.5s allow-discrete, overlay 0.5s allow-discrete, opacity 0.5s;
+    opacity: 0;
+  }
 
-[open],
-[open]::backdrop {
-  opacity: 1;
-}
-
-@starting-style {
   [open],
   [open]::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    [open],
+    [open]::backdrop {
+      opacity: 0;
+    }
+  }
+}
+
+@supports not (transition: display 0.5s allow-discrete) {
+  dialog,
+  ::backdrop {
+    transition: opacity 0.5s ease-in-out;
     opacity: 0;
+  }
+
+  [open],
+  [open]::backdrop {
+    opacity: 1;
   }
 }
 
