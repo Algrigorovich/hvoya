@@ -1,0 +1,43 @@
+<header class="header js-header">
+  <div class="header__container">
+    <a href="/" class="header__logo">
+      <img src="img/logo.svg" alt="Логотип Хвоя 33" class="logo" />
+      <p class="header__caption">Банный комлекс</p>
+    </a>
+
+    <nav class="header__nav nav">
+      <a href="#tariffs" class="nav__link nav__link_tariffs">Выбрать тариф</a>
+      <a href="#contacts" class="nav__link nav__link_contacts">Как доехать</a>
+    </nav>
+
+    <a href="tel:+79107700909" class="button header__phone">+7 910 770-09-09</a>
+
+    <div class="header__mobile mobile-element">
+      <a href="#contacts" class="header__icon">
+        <img src="img/icons/location_white.svg" alt="">
+      </a>
+      <a href="tel:+79107700909" class="header__icon">
+          <img src="img/icons/phone_white.svg" alt="">
+      </a>
+      <button class="header__menu-button js-menu-toggle" aria-label="Открыть меню">
+        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 1.89991L19.75 1.8999H0.25M10 9.39991L19.75 9.3999H0.25M10 16.8999L19.75 16.8999H0.25" stroke="white" stroke-width="2"/>
+          </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu__close js-menu-close" aria-label="Закрыть меню">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.00003 5.13929L19 19M5 18.8607L19 5" stroke="white" stroke-width="2"/>
+      </svg>                                     
+  </button>
+  
+  <ul class="mobile-menu__list">
+    <li class="mobile-menu__item"><a href="#tariffs">Выбрать тариф</a></li>
+    <li class="mobile-menu__item"><a href="#contacts">Как доехать</a></li>
+    <li class="mobile-menu__item"><button class="js-open-feedback-modal">Заказать звонок</button></li>
+  </ul>
+</nav>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% include './partials/head.html' %}
+</head>
+<body>
+    <div class="site-wrapper">
+        {% include './partials/header.html' %}
+        <!-- MAIN CONTENT START -->
+
+        {% include './partials/intro.html' %}
+        {% include './partials/instagram-gallery.html' %}
+        {% include './partials/about.html' %}
+        {% include './partials/parmaster.html' %}
+        {% include './partials/tariffs.html' %}
+        {% include './partials/gallery.html' %}
+        {% include './partials/map.html' %}
+        
+        <!-- MAIN CONTENT END -->
+        {% include './partials/footer.html' %}
+        {% include './partials/modals.html' %}
+    </div>
+    <button class="order-banner button js-open-order-modal visually-hidden">
+        Оформить заказ <span>&ensp;x&ensp;9 600 ₽</span>
+    </button>
+
+    {% include './partials/scripts.html' %}
+</body>
+</html>

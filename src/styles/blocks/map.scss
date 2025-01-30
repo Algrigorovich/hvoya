@@ -1,0 +1,154 @@
+.map {
+  position: relative;
+  scroll-padding-top: 90px;
+
+  @include respond-to(small) {
+    display: flex;
+    flex-direction: column-reverse;
+    background: #32383e;
+    padding-top: 24px;
+  }
+
+  &__map {
+    width: 100%;
+    height: 768px;
+
+    @include respond-to(small) {
+      height: 387px;
+    }
+  }
+
+  &__contacts {
+    position: absolute;
+    left: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 32px;
+    max-width: 514px;
+    width: 100%;
+    clip-path: polygon(
+      23px 0,
+      calc(100% - 23px) 0,
+      100% 23px,
+      100% calc(100% - 23px),
+      calc(100% - 23px) 100%,
+      23px 100%,
+      0 calc(100% - 23px),
+      0 23px
+    );
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+
+    @include respond-to(laptop-mdpi) {
+      max-width: 360px;
+    }
+    @include respond-to(medium) {
+      left: 60px;
+    }
+    @include respond-to(small) {
+      position: static;
+      transform: unset;
+      margin: 0 auto;
+      max-width: calc(100% - 24px);
+      padding: 24px 12px;
+      row-gap: 24px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    color: #2b2e30;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+
+    @include respond-to(small) {
+      font-size: 28px;
+    }
+  }
+
+  &__info {
+    color: #2b2e30;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    max-width: 378px;
+
+    @include respond-to(small) {
+      font-size: 16px;
+    }
+  }
+
+  &__caption {
+    display: block;
+    font-weight: 700;
+  }
+
+  &__phone,
+  &__address {
+    position: relative;
+    padding-left: 48px;
+
+    @include respond-to(small) {
+      padding-left: 40px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 32px;
+      height: 32px;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      @include respond-to(small) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__phone {
+    a {
+      @include hover {
+        color: $color-green;
+      }
+    }
+
+    &::before {
+      background-image: url('../../img/icons/phone.svg');
+    }
+  }
+
+  &__address {
+    margin-top: 16px;
+
+    &::before {
+      background-image: url('../../img/icons/location.svg');
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: none;
+
+    @media (hover: hover) and (pointer: fine) {
+      display: inline-flex;
+    }
+
+    &_mobile {
+      display: none;
+
+      @media (hover: none) and (pointer: coarse) {
+        display: inline-flex;
+      }
+    }
+  }
+}

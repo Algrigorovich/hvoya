@@ -1,0 +1,151 @@
+.intro {
+  height: 768px;
+  width: 100%;
+  position: relative;
+
+  @include respond-to(small) {
+    height: 600px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: relative;
+    margin: 142px auto 0;
+    width: 100%;
+    max-width: 991px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+
+    @include respond-to(laptop-mdpi) {
+      max-width: 49%;
+    }
+    @include respond-to(small) {
+      max-width: 350px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    color: #fff;
+
+    span {
+      display: block;
+      font-weight: 300;
+    }
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    margin-top: 16px;
+
+    @include respond-to(laptop-mdpi) {
+      font-size: 24px;
+    }
+    @include respond-to(small) {
+      color: #fff;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  }
+
+  &__play-button {
+    margin-top: 64px;
+    cursor: pointer;
+    transition: $base-transition;
+    width: 144px;
+    height: 144px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      background: url('../../img/icons/play.svg') center/cover no-repeat;
+
+      @include respond-to(medium) {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      animation: rotate 25s linear infinite forwards;
+      pointer-events: none;
+    }
+
+    @include hover {
+      opacity: 0.8;
+    }
+    @include respond-to(small) {
+      margin-top: 48px;
+      width: 84px;
+      height: 84px;
+    }
+  }
+
+  &__mute-button {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: $base-transition;
+    background: url('../../img/volumeOn.svg') center/cover no-repeat;
+    font-size: 0;
+    z-index: 1;
+
+    @include hover {
+      opacity: 0.8;
+    }
+    @include respond-to(ipad) {
+      right: 12px;
+      bottom: 12px;
+    }
+
+    &.muted {
+      background: url('../../img/volumeOff.svg') center/cover no-repeat;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

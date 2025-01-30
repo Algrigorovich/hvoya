@@ -1,0 +1,7 @@
+import './blocks/tariffs.js'
+import './api/map.js'
+import './blocks/gallery.js'
+import './blocks/instagram.js'
+import './blocks/video-modal.js'
+import './blocks/header.js'
+import './blocks/modals.js'

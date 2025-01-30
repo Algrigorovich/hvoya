@@ -1,0 +1,200 @@
+.header {
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 80px);
+  max-width: 1840px;
+  overflow: hidden;
+  margin-top: 34px;
+  left: 40px;
+  right: 40px;
+  z-index: 100;
+  transition: $base-transition;
+
+  &_scrolling {
+    transform: translateY(-34px);
+  }
+
+  @include respond-from(FHD) {
+    left: calc((100vw - 1840px - 17px) / 2 );
+   
+  }
+
+  @include respond-to(small) {
+    padding: 12px;
+    width: 100%;
+    margin-top: 0;
+    left: unset;
+    right: unset;
+
+    &_scrolling {
+      transform: unset;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000, $alpha: 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+  }
+
+  &__logo {
+    display: flex;
+    column-gap: 16px;
+  }
+
+  &__caption {
+    color: #fff;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    max-width: 67px;
+    margin: 0;
+
+    @include respond-to(small) {
+      font-size: 10px;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+    display: flex;
+    gap: 32px;
+  }
+
+  &__phone {
+    margin-left: 32px;
+    padding: 8px 12px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    color: #fff;
+    text-decoration: none;
+    background: $color-green;
+    transition: $base-transition;
+
+    @include hover {
+      background: $color-green-lighten;
+    }
+    @include respond-to(medium) {
+      display: none;
+    }
+    @include respond-to(small) {
+      font-size: 0;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      background: url('../../img/icons/phone.svg') center no-repeat;
+    }
+  }
+
+  &__mobile {
+    column-gap: 16px;
+  }
+
+  &__icon {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__icon,
+  &__menu-button {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.nav {
+  &__link {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: $base-transition;
+
+    @include hover {
+      color: $color-green;
+    }
+    @include respond-to(large) {
+      font-size: 20px;
+    }
+    @include respond-to(medium) {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px;
+  transition: right 0.3s ease;
+  z-index: 200;
+
+  &__close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  &.open {
+    right: 0;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 32px;
+  }
+
+  &__item {
+    margin-bottom: 16px;
+
+    a,
+    button {
+      text-decoration: none;
+      color: #fff;
+      font-family: Raleway;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}

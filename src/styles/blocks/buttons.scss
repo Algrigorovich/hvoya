@@ -1,0 +1,55 @@
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  clip-path: polygon(
+    0px 0px,
+    calc(100% - 10px) 0px,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    $color-green 0%,
+    $color-green-lighten 100%
+  );
+  transition: $base-transition;
+
+  @include hover {
+    filter: grayscale(0.4);
+  }
+  @include respond-to(laptop-mdpi) {
+    font-size: 20px;
+  }
+  @include respond-to(small) {
+    font-size: 18px;
+    padding-bottom: 12px;
+  }
+
+  &_light {
+    background: #c8e8d6;
+    color: $color-green;
+    transition: $base-transition;
+
+    @include hover {
+      background: $color-green;
+      color: #fff;
+    }
+  }
+}

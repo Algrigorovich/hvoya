@@ -1,0 +1,212 @@
+.modal {
+  min-height: 400px;
+  max-width: 466px;
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+  padding: 20px;
+  clip-path: polygon(
+    var(--clip-size-corner) 0,
+    calc(100% - var(--clip-size-corner)) 0,
+    100% var(--clip-size-corner),
+    100% calc(100% - var(--clip-size-corner)),
+    calc(100% - var(--clip-size-corner)) 100%,
+    var(--clip-size-corner) 100%,
+    0 calc(100% - var(--clip-size-corner)),
+    0 var(--clip-size-corner)
+  );
+
+  &::backdrop {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+  }
+  @include hide-scrollbar;
+
+  &__form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+    color: #000;
+    transition: $base-transition;
+
+    @include hover {
+      color: $color-green;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    font-size: 42px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    color: #2b2e30;
+
+    @include respond-to(medium) {
+      font-size: 32px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d7d7d7;
+    background: #fff;
+    border-radius: 0;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    color: #2b2e30;
+    font-size: 24px;
+
+    &:focus-within {
+      border: 2px solid #0e8f47;
+    }
+  }
+
+  &__text {
+    color: $color-green;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 17px;
+
+    a {
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      text-underline-position: from-font;
+
+      @include hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__submit {
+    width: 100%;
+  }
+}
+
+.modal-video {
+  --plyr-video-control-background-hover: #0a5c2e;
+
+  width: 70vw;
+  min-height: 200px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0;
+
+  &::backdrop {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+  }
+
+  &:has(.plyr--playing) {
+    &::backdrop {
+      background-color: rgba($color: #000000, $alpha: 1);
+    }
+  }
+
+  &:has(.plyr--hide-controls) {
+    .modal__close {
+      opacity: 0;
+    }
+  }
+
+  video {
+    width: 100%;
+    object-fit: cover;
+  }
+  @include respond-to(medium) {
+    width: 100vw;
+    max-width: unset;
+    padding: 4px;
+    left: 0;
+    right: 0;
+  }
+
+  @include hide-scrollbar;
+
+  .plyr__menu__container [role='menu'] {
+    max-height: 100px;
+    overflow: scroll;
+  }
+  .modal__close {
+    color: #fff;
+    z-index: 1;
+    opacity: 1;
+
+    @include hover {
+      color: $color-green-lighten;
+    }
+  }
+}
+
+.order-info {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 48px;
+    color: #000;
+    background-color: #f0f0f0;
+    font-size: 20px;
+    line-height: normal;
+    padding: 16px;
+
+    &:last-of-type {
+      background: #cec9b9;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    span {
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+  &__price {
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+}
+
+.form-sucess {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 38px;
+  }
+
+  &__text {
+    max-width: 260px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  &__button {
+    width: 100%;
+  }
+}

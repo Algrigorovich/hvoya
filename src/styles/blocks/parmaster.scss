@@ -1,0 +1,130 @@
+.parmaster {
+  margin-top: 128px;
+  padding-top: 128px;
+  background: url('../img/parmaster-bg.svg') top center no-repeat;
+  color: #fff;
+  position: relative;
+
+  @include respond-to(laptop-mdpi) {
+    margin-top: 64px;
+  }
+  @include respond-to(small) {
+    margin-top: 48px;
+    background-position: 74% 22px;
+    background-size: 100vw;
+  }
+  @include respond-to(phone) {
+    background-size: 673px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 123px;
+    background-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 20%,
+      #04060a 20%,
+      #04060a 100%
+    );
+
+    @include respond-to(small) {
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    border-radius: 12px;
+    position: absolute;
+    left: -8px;
+    bottom: 34px;
+    z-index: 0;
+
+    @include respond-to(laptop-hdpi) {
+      max-width: 65%;
+      bottom: 0;
+    }
+    @include respond-to(large) {
+      bottom: 15%;
+    }
+    @include respond-to(small) {
+      max-width: 100%;
+      margin-bottom: 20px;
+      left: 29px;
+      width: 412px;
+      height: 291px;
+    }
+    @include respond-to(phone) {
+      top: -10px;
+      bottom: unset;
+    }
+
+    img {
+      border-top-left-radius: 53% 23%;
+      border-top-right-radius: 53% 23%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    max-width: 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 194px;
+    z-index: 1;
+    margin-left: auto;
+
+    @include respond-to(laptop-hdpi) {
+      max-width: 50%;
+    }
+    @include respond-to(large) {
+      margin-top: 128px;
+    }
+    @include respond-to(small) {
+      text-align: left;
+      gap: 16px;
+    }
+    @include respond-to(phone) {
+      margin-top: 278px;
+      max-width: unset;
+    }
+
+    h2 {
+      @include respond-to(phone) {
+        max-width: 80%;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.3;
+
+      @include respond-to(laptop-mdpi) {
+        font-size: 20px;
+      }
+      @include respond-to(small) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__button {
+    color: #fff;
+    align-self: flex-start;
+
+    @include respond-to(small) {
+      align-self: stretch;
+      max-width: 360px;
+    }
+  }
+}
