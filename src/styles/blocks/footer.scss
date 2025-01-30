@@ -16,7 +16,7 @@
     @include respond-to(small) {
       text-align: center;
     }
-    .logo {
+    a {
       max-width: 211px;
       width: 100%;
       display: block;
@@ -24,6 +24,12 @@
       @include respond-to(small) {
         margin: 0 auto;
       }
+    }
+
+    .logo {
+      max-width: 211px;
+      width: 100%;
+      display: block;
     }
   }
 
